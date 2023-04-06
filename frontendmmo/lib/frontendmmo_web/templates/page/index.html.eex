@@ -1,0 +1,51 @@
+<div class="container-lg p-2">
+  <div tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="form-title text-center">
+            <h4><%= gettext "Nickname"%></h4>
+          </div>
+          <div class="d-flex flex-column text-center">
+            <%= form_for @conn, Routes.page_path(@conn, :create_player), fn f -> %>
+              <div class="mb-3">
+                <%= text_input f, :player_id, class: "form-control" %>            
+                <%= error_tag f, :player_id%>
+              </div>
+              <div class="">
+                <%= submit "Start", class: "btn btn-secondary mb-3 w-100"%>
+              </div>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="card-header" id="headingOne">
+        <div class="container-lg p-2">
+        <h4 class="mb-0">
+            How to play?
+        </h4>
+        </div>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="container-lg p-2">
+            There is a 40x40 map made out of 1600 tiles. The border tiles are not accesible. <br><br>
+            When a player enters the map, it spawns at tile (39, 39) and has HP of 100. <br>
+            A player can move north, east, south or west on the map. It can only move 1 tile at a time. <br>
+            A player can attack an adjacant player. The other player has to be in a radius of 1 tile in order for it to be hit. When two players are standing on the same tile, they can’t hit each other. <br>
+            When a player  is hit, it loses 10HP. If the player has no HP left after that, it respawns at start with 100HP. <br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

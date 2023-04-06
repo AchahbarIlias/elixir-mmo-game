@@ -1,0 +1,75 @@
+<div class="container-lg p-2">
+
+  <div class="modal-dialog ">
+    <h4 class="text-center">Currently playing as: <%= @player_id %></h4>
+
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-lg p-2 text-center">
+          
+          <h3 class="mb-200">
+             Move To 
+          </h3>
+          
+          <form class="form-group ">
+            <div class="mb-3">
+              <%= link "North", to: Routes.page_path(@conn, :north, @player_id), class: "btn btn-secondary w-100" %>                      
+            </div>
+
+            <div class="mb-3">
+              <%= link "East", to: Routes.page_path(@conn, :east, @player_id), class: "btn btn-secondary w-100" %>                      
+            </div>
+
+            <div class="mb-3">
+              <%= link "South", to: Routes.page_path(@conn, :south, @player_id), class: "btn btn-secondary w-100" %>
+            </div>
+
+            <div class="mb-3">
+              <%= link "West", to: Routes.page_path(@conn, :west, @player_id), class: "btn btn-secondary w-100" %>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-lg p-2 text-center">
+            
+          <h3 class="mb-200"> 
+            Attack
+          </h3>
+
+          <%= form_for @conn, Routes.page_path(@conn, :attack, @player_id), fn f -> %>
+            <div class="mb-3">
+              <%= text_input f, :attack_id, class: "form-control" %>
+              <%= error_tag f, :attack_id%>
+            </div>
+              <%= submit "Attack", class: "btn btn-secondary w-100"%>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container-lg p-2">
+          <div id="xdd">
+            <%= @data %>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+    
+
+</div>
+
+
+
